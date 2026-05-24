@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cerere - Donează Sânge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <a class="brand" href="/">Donează<br>Sânge</a>
+
+    <nav class="header-anon">
+      <a href="/" class="nav-link">Cereri</a>
+    </nav>
+    <nav class="header-auth" style="display:none">
+      <a href="/" class="nav-link">Cereri</a>
+      <a href="/prieteni.html" class="nav-link">Prieteni</a>
+      <a href="/profil.html" class="nav-link">Profil</a>
+    </nav>
+
+    <div class="header-right">
+      <button class="bell header-auth" id="bell-btn" style="display:none"><svg class="bell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg><span class="bell-count" id="bell-count" hidden>0</span></button>
+      <a class="btn-link header-anon" href="/login.html">Intră în cont</a>
+      <a class="btn-secondary header-anon" href="/signup.html">Devino donator</a>
+      <button class="btn-link header-auth" id="logout-btn" style="display:none">Ieși</button>
+    </div>
+    <div class="notifications-panel" id="notifications-panel" hidden>
+      <h3>Notificări</h3>
+      <div id="notifications-list"></div>
+    </div>
+  </header>
+
+  <main class="page">
+    <a class="back-link" href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      toate cererile
+    </a>
+
+    <article class="request-detail" id="request-detail">
+      <p>Se încarcă...</p>
+    </article>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/cerere.js"></script>
+</body>
+</html>

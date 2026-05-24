@@ -1,0 +1,1179 @@
+/* =========================================================
+   STIL GLOBAL - Donează Sânge
+   ---------------------------------------------------------
+   Palette restrânsă, tipografie editorială, layout calm.
+   Fraunces (serif) pentru titluri și cifre mari.
+   Inter (sans) pentru text de corp și UI.
+   ========================================================= */
+
+/* Variabile de culoare - definite o singură dată, refolosite peste tot */
+:root {
+  --cream:       #F5F0E8;   /* fundal principal */
+  --cream-deep:  #ECE5D7;   /* fundal panouri secundare */
+  --ink:         #1A1A1A;   /* text principal */
+  --ink-soft:    #4A453E;   /* text secundar */
+  --ink-muted:   #8A847A;   /* etichete, hint-uri */
+  --line:        #D8CFC0;   /* linii și borduri */
+  --blood:       #8B0000;   /* roșu sânge - urgență */
+  --blood-deep:  #6B0000;   /* hover */
+  --leaf:        #4A5D3A;   /* verde - confirmări / OK */
+  --shadow:      0 1px 3px rgba(26, 26, 26, 0.06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--blood); }
+
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 1rem; }
+h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+em {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  color: var(--blood);
+  font-weight: 500;
+}
+
+.lede {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 56ch;
+  margin-bottom: 2rem;
+}
+
+/* ---------- BUTOANE ---------- */
+
+.btn-primary {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 0.85rem 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.btn-primary:hover { background: var(--blood); color: var(--cream); }
+.btn-primary:disabled { background: var(--ink-muted); cursor: not-allowed; }
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0.5rem 0;
+}
+.btn-link:hover { color: var(--blood); }
+
+.btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 0.7rem 1.2rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.btn-secondary:hover { background: var(--ink); color: var(--cream); }
+
+/* ============================================================
+   LANDING (pagina principală neautentificată)
+   ============================================================ */
+
+.landing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.landing-hero {
+  max-width: 720px;
+  width: 100%;
+}
+
+.landing-hero h1 {
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.cta-row {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 2rem 0 4rem;
+  flex-wrap: wrap;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.stat-number {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--blood);
+  letter-spacing: -0.03em;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  margin-top: 0.5rem;
+}
+
+/* ============================================================
+   AUTH (login + signup)
+   ============================================================ */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.auth-card {
+  background: var(--cream-deep);
+  padding: 3rem;
+  max-width: 440px;
+  width: 100%;
+  position: relative;
+}
+
+.auth-card.wider { max-width: 540px; }
+
+.auth-back {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.auth-back svg { width: 14px; height: 14px; }
+
+.auth-card h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.auth-card .lede {
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.auth-switch {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- FORMULARE ---------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form label span {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.form input,
+.form select,
+.form textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 0;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.form button { margin-top: 0.5rem; }
+
+.form-error {
+  color: var(--blood);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.form-success {
+  color: var(--leaf);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  padding: 0.25rem 0;
+}
+
+.form-inline {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+  margin-bottom: 0.5rem;
+}
+
+.form-inline input {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-grid label.full { grid-column: 1 / -1; }
+.form-grid button { grid-column: 1 / -1; justify-self: start; }
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.form-grid label span {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+
+/* ============================================================
+   HEADER (pagini autentificate)
+   ============================================================ */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.1;
+  text-decoration: none;
+  color: var(--ink);
+  margin-right: 3rem;
+}
+
+.app-header nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid transparent;
+}
+.nav-link:hover { color: var(--ink); }
+.nav-link.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.bell {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink);
+  padding: 0.25rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.bell-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.bell-count {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--blood);
+  color: var(--cream);
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0 4px;
+}
+
+.notifications-panel {
+  position: absolute;
+  top: 100%;
+  right: 2rem;
+  background: var(--cream-deep);
+  padding: 1.25rem;
+  min-width: 320px;
+  max-width: 380px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  margin-top: 0.5rem;
+}
+
+.notifications-panel h3 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.notification-item {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+.notification-item:last-child { border-bottom: none; }
+.notification-item a { text-decoration: none; color: var(--ink); }
+.notification-item.unread { font-weight: 500; }
+
+.notification-empty {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  padding: 0.5rem 0;
+}
+
+/* ============================================================
+   PAGE LAYOUT
+   ============================================================ */
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-hero {
+  margin-bottom: 2.5rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.back-link:hover { color: var(--blood); }
+.back-link svg { width: 14px; height: 14px; }
+
+/* ---------- Helper pentru iconuri inline (linie subțire) ---------- */
+.icon-inline {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: -2px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-phone {
+  margin-right: 0.35rem;
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   FEED (lista cererilor + harta)
+   ============================================================ */
+
+.feed-hero {
+  margin-bottom: 2.5rem;
+}
+
+.feed-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+}
+
+/*
+ * Layout feed: harta rămâne FIXĂ pe desktop (sticky pe full-height),
+ * iar lista de cereri din dreapta e singura care primește scroll.
+ * Pe mobil totul curge normal: harta sus, cererile sub.
+ */
+.feed-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.map-card {
+  background: var(--cream-deep);
+  padding: 0;
+  position: sticky;
+  /* 100px = înălțimea header-ului + spațiu deasupra */
+  top: 100px;
+  border: 1px solid var(--line);
+  /* Harta umple practic toată viewport-ul rămas sub header */
+  height: calc(100vh - 130px);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * Markeri custom pe hartă - pin-uri rotunde, roșu pentru urgent
+ * (cu cerc pulsant exterior), negru pentru programat.
+ * Folosim divIcon Leaflet, deci stilizăm HTML normal.
+ */
+.map-pin-wrap { background: none !important; border: none !important; }
+
+.map-pin {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid var(--cream);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+.map-pin-pulse {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--blood);
+  opacity: 0;
+  animation: pin-pulse 1.8s ease-out infinite;
+}
+
+@keyframes pin-pulse {
+  0%   { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/*
+ * Popup-ul de pe marker: titlu spital + lista cererilor de la el.
+ * Stilurile din .leaflet-popup-* le suprascriem ca să se potrivească
+ * cu paleta noastră (nu albul default Leaflet).
+ */
+.leaflet-popup-content-wrapper {
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.leaflet-popup-tip { background: var(--cream); }
+.leaflet-popup-content { margin: 0.85rem 1rem; font-family: 'Inter', sans-serif; }
+
+.map-popup strong { font-size: 0.95rem; }
+.map-popup-count {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin: 0.3rem 0 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.map-popup-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+.map-popup-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.map-popup-list li:last-child { border-bottom: none; }
+.map-popup-list a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+.map-popup-list a:hover { color: var(--blood); }
+.map-popup-list a strong {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1rem;
+  color: var(--blood);
+}
+
+.map-popup-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--line);
+}
+.map-popup-badge.urgent {
+  color: var(--blood);
+  border-color: var(--blood);
+}
+
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* Lista nu primește înălțime fixă; doar curge în jos pe pagină.
+     Sticky-ul hărții o face să rămână pe loc cât timp scrolăm cardurile. */
+}
+
+/* ---------- CARD CERERE ---------- */
+
+.request-card {
+  background: var(--cream-deep);
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  display: block;
+  transition: border-color 0.15s ease;
+}
+.request-card:hover { border-color: var(--ink); color: var(--ink); }
+
+.request-card.urgent {
+  border-left: 4px solid var(--blood);
+  padding-left: calc(1.5rem - 3px);
+}
+
+.request-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.urgency-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--blood);
+}
+
+.urgency-badge.urgent::before {
+  content: "●";
+  display: inline-block;
+  margin-right: 0.4em;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
+.deadline-label {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.blood-type-big {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--blood);
+  line-height: 1;
+  margin: 0.5rem 0;
+}
+
+.units-line {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.75rem;
+}
+
+.hospital-line {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.25rem;
+}
+
+.pledge-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.pledge-count {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.pledge-count-label {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin-left: 0.5rem;
+}
+
+.cant-donate-hint {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* ============================================================
+   DETALII CERERE
+   ============================================================ */
+
+.request-detail {
+  max-width: 800px;
+}
+
+.request-detail h1 {
+  margin-bottom: 0.5rem;
+}
+
+.request-detail .hospital-meta {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+.detail-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2rem;
+}
+
+.detail-stat-num {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.detail-stat-num.blood-color { color: var(--blood); }
+
+.detail-stat-label {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.4rem;
+}
+
+.notes-block {
+  padding: 1rem 1.25rem;
+  background: var(--cream-deep);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.section-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+}
+
+.pledge-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+/*
+ * Checkbox custom pentru "Apar ca anonim spitalului".
+ * Ascundem checkbox-ul nativ (cu accentul lui albastru urât) și
+ * desenăm noi un pătrat în culorile aplicației. Bifa interioară e
+ * un mic SVG generat din CSS via background-image (sau pseudo-element).
+ */
+.anonymity-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+/* Ascundem checkbox-ul nativ dar îl lăsăm accesibil */
+.anonymity-toggle input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+}
+
+.anonymity-box {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--ink-soft);
+  background: var(--cream);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.12s ease;
+}
+
+.anonymity-toggle:hover .anonymity-box {
+  border-color: var(--ink);
+}
+
+.anonymity-toggle input[type=checkbox]:focus-visible + .anonymity-box {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Bifa - desenată cu un SVG-encoded data URI, apare doar când e bifat */
+.anonymity-toggle input[type=checkbox]:checked + .anonymity-box {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.anonymity-toggle input[type=checkbox]:checked + .anonymity-box::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F5F0E8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12l5 5L20 7'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.pledgers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.pledger-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--cream-deep);
+}
+
+.pledger-name {
+  font-weight: 500;
+}
+
+.pledger-status {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pledger-status.confirmed { color: var(--leaf); }
+
+.invite-friends-block {
+  padding: 1.5rem;
+  background: var(--cream-deep);
+  margin-top: 2rem;
+}
+
+.invite-friends-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.invite-friend-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.85rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+
+.invite-friend-meta {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.invite-btn {
+  background: none;
+  border: 1px solid var(--ink);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.invite-btn:hover { background: var(--ink); color: var(--cream); }
+.invite-btn:disabled { cursor: not-allowed; }
+.invite-btn.sent {
+  background: var(--leaf);
+  color: var(--cream);
+  border-color: var(--leaf);
+}
+.invite-btn.sent:hover { background: var(--leaf); color: var(--cream); }
+.invite-btn svg { width: 14px; height: 14px; }
+
+/* ============================================================
+   PRIETENI
+   ============================================================ */
+
+.add-friend {
+  background: var(--cream-deep);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.incoming-requests {
+  margin-bottom: 2rem;
+}
+
+.incoming-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: var(--cream-deep);
+  border-left: 4px solid var(--blood);
+  margin-bottom: 0.5rem;
+}
+
+.incoming-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.friends-list-section {
+  margin-top: 1rem;
+}
+
+/* ============================================================
+   PROFIL
+   ============================================================ */
+
+/*
+ * Profil - rândul de carduri cu statistici
+ * Fără border-uri zgomotoase, fiecare cifră într-un card propriu pe
+ * cream-deep. 4 carduri (donații / vieți / eligibil / grupa).
+ */
+.profile-greeting {
+  margin-bottom: 1.5rem;
+}
+
+.stat-card-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: var(--cream-deep);
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 130px;
+}
+
+.stat-card-num {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.stat-card-num.blood-color { color: var(--blood); }
+.stat-card-num.eligible    { color: var(--leaf); font-size: 2rem; }
+
+.stat-card-label {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 1rem;
+}
+
+/*
+ * entity-row - rând generic folosit pentru:
+ *   - donații programate (clickable, duce la cerere)
+ *   - istoricul donațiilor (static)
+ *   - lista de prieteni (static)
+ * Variantă "static" = fără hover, fără cursor pointer.
+ */
+.entity-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: var(--cream-deep);
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  color: var(--ink);
+  gap: 1rem;
+}
+
+.entity-row:not(.static):hover {
+  /* Hover subtil doar pentru rândurile clickable; nu schimbăm fundal */
+  color: var(--blood);
+}
+
+.entity-row.static { cursor: default; }
+
+.entity-row-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.entity-row-meta {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin-top: 0.15rem;
+}
+
+.entity-row-status {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/*
+ * friend-blood-tag - pill-ul cu grupa de sânge afișat lângă nume.
+ * Folosit în lista de prieteni, cereri primite, etc.
+ */
+.friend-blood-tag {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--blood);
+  line-height: 1;
+}
+
+/* ============================================================
+   DASHBOARD SPITAL
+   ============================================================ */
+
+.new-request {
+  background: var(--cream-deep);
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.hospital-request-row {
+  background: var(--cream-deep);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.hospital-request-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.hospital-request-blood {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--blood);
+}
+
+.hospital-pledgers-list {
+  margin-top: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.hospital-pledger-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.confirm-btn,
+.dispute-btn {
+  background: none;
+  border: 1px solid var(--line);
+  padding: 0.3rem 0.65rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+.confirm-btn:hover { background: var(--leaf); color: var(--cream); border-color: var(--leaf); }
+.dispute-btn:hover { background: var(--blood); color: var(--cream); border-color: var(--blood); }
+
+/* ============================================================
+   MOBIL (sub 800px) - feed-ul devine o coloană, header compact
+   ============================================================ */
+
+@media (max-width: 800px) {
+  /* Pe mobil layout-ul devine o singură coloană: harta sus, cererile sub.
+     Harta nu mai e sticky pe full-height - rămâne un panou fix de 300px
+     iar pagina curge normal. */
+  .feed-grid { grid-template-columns: 1fr; }
+  .map-card {
+    position: static;
+    height: 300px;
+  }
+
+  .app-header {
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .app-header nav { gap: 1rem; }
+  .nav-link { font-size: 0.85rem; }
+  .brand { margin-right: 1rem; font-size: 0.9rem; }
+  .header-right { gap: 0.75rem; }
+
+  .page { padding: 1.25rem; }
+
+  .form-grid { grid-template-columns: 1fr; }
+
+  /* Profil: cele 4 carduri devin grid 2x2 pe mobil */
+  .stat-card-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .stat-card { min-height: 110px; padding: 1.25rem 1rem; }
+  .stat-card-num { font-size: 2.2rem; }
+
+  .stat-row { gap: 1.5rem; padding-top: 2rem; }
+
+  .notifications-panel {
+    right: 1rem;
+    left: 1rem;
+    min-width: auto;
+  }
+}

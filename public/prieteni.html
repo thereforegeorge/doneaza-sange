@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prieteni - Donează Sânge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <a class="brand" href="/">Donează<br>Sânge</a>
+    <nav class="header-auth" style="display:none">
+      <a href="/" class="nav-link">Cereri</a>
+      <a href="/prieteni.html" class="nav-link active">Prieteni</a>
+      <a href="/profil.html" class="nav-link">Profil</a>
+    </nav>
+    <div class="header-right">
+      <button class="bell header-auth" id="bell-btn" style="display:none"><svg class="bell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg><span class="bell-count" id="bell-count" hidden>0</span></button>
+      <button class="btn-link header-auth" id="logout-btn" style="display:none">Ieși</button>
+    </div>
+    <div class="notifications-panel" id="notifications-panel" hidden>
+      <h3>Notificări</h3>
+      <div id="notifications-list"></div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="page-hero">
+      <h1>Prietenii tăi.</h1>
+      <p class="lede">Tag-uiește-i la cereri unde grupa lor poate ajuta. Tot ce le trimiți le apare privat în clopoțelul lor.</p>
+    </section>
+
+    <section class="add-friend">
+      <h2>Adaugă un prieten</h2>
+      <form id="add-friend-form" class="form-inline">
+        <input type="email" name="email" placeholder="email@exemplu.ro" required>
+        <button type="submit" class="btn-primary">Trimite cerere</button>
+      </form>
+      <p class="form-error" id="add-friend-error" hidden></p>
+      <p class="form-success" id="add-friend-success" hidden></p>
+    </section>
+
+    <section class="incoming-requests" id="incoming-section" hidden>
+      <h2>Cereri primite</h2>
+      <div id="incoming-list"></div>
+    </section>
+
+    <section class="friends-list-section">
+      <h2>Prietenii tăi</h2>
+      <div id="friends-list">Se încarcă...</div>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/prieteni.js"></script>
+</body>
+</html>

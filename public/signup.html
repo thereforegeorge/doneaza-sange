@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Înregistrare - Donează Sânge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="auth-page">
+  <main class="auth-card wider">
+    <a class="auth-back" href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      înapoi
+    </a>
+    <h1>Devino donator.</h1>
+    <p class="lede">Câteva detalii și ești înăuntru.</p>
+
+    <form id="signup-form" class="form">
+      <label>
+        <span>Nume complet</span>
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" required autocomplete="email">
+      </label>
+      <label>
+        <span>Parolă (minim 4 caractere)</span>
+        <input type="password" name="password" required minlength="4" autocomplete="new-password">
+      </label>
+
+      <label>
+        <span>Grupa sanguină</span>
+        <select name="blood_type" required>
+          <option value="">-- alege --</option>
+          <option value="O-">O−</option>
+          <option value="O+">O+</option>
+          <option value="A-">A−</option>
+          <option value="A+">A+</option>
+          <option value="B-">B−</option>
+          <option value="B+">B+</option>
+          <option value="AB-">AB−</option>
+          <option value="AB+">AB+</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Ultima donație (opțional)</span>
+        <input type="date" name="last_donation">
+      </label>
+
+      <p class="form-hint">Aplicația acoperă momentan doar spitalele din București.</p>
+
+      <button type="submit" class="btn-primary">Creează cont</button>
+      <p class="form-error" id="error-msg" hidden></p>
+    </form>
+
+    <p class="auth-switch">Ai deja cont? <a href="/login.html">Autentifică-te</a></p>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

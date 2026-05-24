@@ -1,0 +1,14 @@
+{
+  "name": "doneaza-sange",
+  "version": "1.0.0",
+  "description": "Smart Blood Donor Network - connecting donors with hospitals in need",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.21.1",
+    "socket.io": "^4.8.1"
+  }
+}

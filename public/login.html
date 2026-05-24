@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autentificare - Donează Sânge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <a class="auth-back" href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      înapoi
+    </a>
+    <h1>Bine ai revenit.</h1>
+    <p class="lede">Autentifică-te ca să vezi cererile active.</p>
+
+    <form id="login-form" class="form">
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" required autocomplete="email">
+      </label>
+      <label>
+        <span>Parolă</span>
+        <input type="password" name="password" required minlength="4" autocomplete="current-password">
+      </label>
+      <button type="submit" class="btn-primary">Intră în cont</button>
+      <p class="form-error" id="error-msg" hidden></p>
+    </form>
+
+    <p class="auth-switch">Nu ai cont? <a href="/signup.html">Înregistrează-te</a></p>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

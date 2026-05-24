@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spital - Donează Sânge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <a class="brand" href="/spital.html">Donează<br>Sânge</a>
+    <nav>
+      <a href="/spital.html" class="nav-link active">Cererile mele</a>
+    </nav>
+    <div class="header-right">
+      <button class="btn-link" id="logout-btn">Ieși</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="page-hero">
+      <h1 id="hospital-name">Se încarcă...</h1>
+      <p class="lede">Postează cereri de sânge și vezi cine vine să doneze.</p>
+    </section>
+
+    <section class="new-request">
+      <h2>Cerere nouă</h2>
+      <form id="new-request-form" class="form-grid">
+        <label>
+          <span>Grupa sanguină</span>
+          <select name="blood_type" required>
+            <option value="">--</option>
+            <option value="O-">O−</option><option value="O+">O+</option>
+            <option value="A-">A−</option><option value="A+">A+</option>
+            <option value="B-">B−</option><option value="B+">B+</option>
+            <option value="AB-">AB−</option><option value="AB+">AB+</option>
+          </select>
+        </label>
+        <label>
+          <span>Unități necesare</span>
+          <input type="number" name="units_needed" min="1" max="20" value="1" required>
+        </label>
+        <label>
+          <span>Urgență</span>
+          <select name="urgency" required>
+            <option value="urgent">Urgent</option>
+            <option value="planned">Programat</option>
+          </select>
+        </label>
+        <label>
+          <span>Deadline</span>
+          <input type="datetime-local" name="deadline" required>
+        </label>
+        <label class="full">
+          <span>Detalii (opțional)</span>
+          <textarea name="notes" rows="2"></textarea>
+        </label>
+        <button type="submit" class="btn-primary">Publică cererea</button>
+        <p class="form-error" id="new-request-error" hidden></p>
+      </form>
+    </section>
+
+    <section class="my-requests">
+      <h2>Cererile mele</h2>
+      <div id="my-requests-list">Se încarcă...</div>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/spital.js"></script>
+</body>
+</html>
