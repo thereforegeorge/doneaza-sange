@@ -108,7 +108,7 @@ Nu am folosit Python-Flask și PHP - cele 7 tehnologii de mai sus sunt suficient
 2. Deschide http://localhost:3000
 3. Apasă "Am deja cont" și autentifică-te cu `ana@demo.ro` / `parola123`
 4. Vei vedea 3 cereri active. Apasă pe una.
-5. Apasă "Mă angajez" - se va actualiza contorul.
+5. Apasă "Donez" - se va actualiza contorul.
 6. La block-ul de jos "Cunoști pe cineva care poate dona?", apasă "Tag" pe un prieten - va primi o notificare în clopoțel.
 7. Pentru a vedea efectul live: deschide în alt browser (sau fereastră privată) `mihai@demo.ro` și vei vedea pledge-ul lui Ana apărând fără refresh.
 8. Pentru fluxul spital, autentifică-te ca `spital.universitar@demo.ro` și vei vedea cererile spitalului + butoanele de confirmare pe fiecare pledger.
