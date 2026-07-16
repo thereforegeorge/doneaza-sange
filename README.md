@@ -1,4 +1,5 @@
 # Donează Sânge
+# Proiect pentru facultate, nu este un proiect real.
 
 Aplicație web pentru conectarea donatorilor de sânge cu spitalele care au nevoie urgentă de donații. Spitalele postează cereri (grupa, urgență, deadline), iar donatorii compatibili se angajează să vină. Fiecare cerere are nevoie de minim 3 angajamente ca rezervă, în caz că un donator nu se prezintă.
 
